@@ -22,18 +22,21 @@ export default function Stats() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+        <div className="text-center mb-14 reveal-up">
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-3 text-mask-reveal">
             Market Opportunity &amp; Our Impact
           </h2>
-          <p className="text-slate-300 max-w-xl mx-auto">
+          <p className="text-slate-300 max-w-xl mx-auto text-reveal-up delay-100">
             Operating in India&apos;s fastest-growing infrastructure sectors.
           </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
-          {stats.map(({ value, label, sub }) => (
-            <div key={label} className="stats-card rounded-2xl p-6 text-center card-hover backdrop-blur-sm">
+          {stats.map(({ value, label, sub }, idx) => (
+            <div 
+              key={label} 
+              className={`stats-card rounded-2xl p-6 text-center card-hover backdrop-blur-sm reveal-up delay-${(idx + 1) * 100}`}
+            >
               <div className="text-3xl md:text-4xl font-black text-white mb-2">{value}</div>
               <div className="text-blue-300 font-bold text-sm mb-1">{label}</div>
               <div className="text-slate-400 text-xs">{sub}</div>
@@ -46,8 +49,11 @@ export default function Stats() {
             { title: "India Telecom Infrastructure", value: "$35.1B → $71.3B", detail: "2024–2033 | CAGR ~7.8%" },
             { title: "India Civil & Electrical Infrastructure", value: "$475B → $801.6B", detail: "2023–2030 | CAGR ~7.8%" },
             { title: "Electrical Components (OFC & Wiring)", value: "$259.6M → $456.8M", detail: "2024–2033 | CAGR ~6.5%" },
-          ].map(({ title, value, detail }) => (
-            <div key={title} className="bg-white/6 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors backdrop-blur-sm">
+          ].map(({ title, value, detail }, idx) => (
+            <div 
+              key={title} 
+              className={`bg-white/6 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors backdrop-blur-sm reveal-up delay-${(idx + 1) * 100 + 100}`}
+            >
               <div className="text-blue-300 font-bold text-xs uppercase tracking-wider mb-3">{title}</div>
               <div className="text-white font-black text-xl mb-1">{value}</div>
               <div className="text-slate-400 text-sm">{detail}</div>

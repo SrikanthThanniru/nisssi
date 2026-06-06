@@ -27,15 +27,15 @@ export default function About() {
     <section id="about" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <span className="text-[#1a35cc] font-semibold text-sm tracking-widest uppercase">
+        <div className="text-center mb-12 md:mb-16 reveal-up">
+          <span className="text-[#1a35cc] font-semibold text-sm tracking-widest uppercase text-reveal-up">
             Who We Are
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0f2e] mt-2 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0a0f2e] mt-2 mb-4 text-mask-reveal delay-100">
             Transforming Enterprise Operations
           </h2>
-          <div className="section-divider mx-auto mb-6" />
-          <p className="text-slate-500 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+          <div className="section-divider mx-auto mb-6 text-reveal-up delay-200" />
+          <p className="text-slate-500 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed text-reveal-up delay-300">
             Nissi Corporate Infra Tech Pvt. Ltd. is a trusted infrastructure firm specializing in
             civil, electrical, and telecom works — delivering high-quality, on-time solutions across
             Andhra Pradesh for over two decades.
@@ -43,11 +43,11 @@ export default function About() {
         </div>
 
         {/* Image strip */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 md:mb-20 rounded-3xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12 md:mb-20 rounded-3xl overflow-hidden reveal-up">
           {[
-            { src: "/branding/img3.jpeg", alt: "Nissi Corporate crane hoist" },
-            { src: "/branding/img4.jpeg", alt: "Nissi Corporate worker on site" },
-            { src: "/branding/img2.jpeg", alt: "Nissi Corporate infrastructure building" },
+            { src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80", alt: "Heavy construction crane and foundations site" },
+            { src: "/branding/img5.jpeg", alt: "Nissi technician on-site work" },
+            { src: "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=800&q=80", alt: "Telecom tower foundation and installation" },
           ].map(({ src, alt }) => (
             <div key={alt} className="relative h-40 md:h-64 overflow-hidden group">
               <Image
@@ -63,20 +63,20 @@ export default function About() {
 
         {/* Main content */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-1.5 mb-6">
+          <div className="reveal-left">
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-1.5 mb-6 text-reveal-up">
               <Building2 size={14} className="text-[#1a35cc]" />
               <span className="text-[#1a35cc] text-xs font-semibold">What We Do</span>
             </div>
-            <h3 className="text-3xl font-black text-[#0a0f2e] mb-5 leading-tight">
+            <h3 className="text-3xl font-black text-[#0a0f2e] mb-5 leading-tight text-mask-reveal delay-100">
               End-to-End Infrastructure Solutions
             </h3>
-            <p className="text-slate-600 leading-relaxed mb-5">
+            <p className="text-slate-600 leading-relaxed mb-5 text-reveal-up delay-200">
               Nissi Corporate Infra Tech Pvt. Ltd. provides comprehensive solutions in civil construction,
               electrical installations, and telecom infrastructure. Our services include tower foundations,
               OFC laying, equipment erection, and power commissioning.
             </p>
-            <p className="text-slate-600 leading-relaxed mb-8">
+            <p className="text-slate-600 leading-relaxed mb-8 text-reveal-up delay-300">
               We support leading telecom providers with reliable, quality-driven project execution,
               ensuring timely delivery, safety compliance, and efficient resource management across
               urban and rural sites throughout Andhra Pradesh.
@@ -100,19 +100,41 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right — company card + image */}
-          <div className="relative">
-            <div className="relative h-72 rounded-3xl overflow-hidden mb-5 shadow-xl">
-              <Image
-                src="/branding/img2.jpeg"
-                alt="Nissi Corporate Building"
-                fill
-                className="object-cover object-top"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f2e]/80 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
-                <div className="text-white font-black text-xl">Nissi Corporate</div>
-                <div className="text-blue-300 text-sm">Infra Tech Private Limited</div>
+          {/* Right — company card + layered images (Inspired by reference site) */}
+          <div className="space-y-6 reveal-right">
+            <div className="relative h-[300px] sm:h-[320px] flex items-center justify-center overflow-hidden rounded-3xl bg-slate-50 border border-slate-100">
+              {/* Background Blue Accent Frame */}
+              <div className="absolute right-2 bottom-2 w-56 h-56 bg-[#1a35cc] rounded-3xl z-0 opacity-10" />
+              
+              {/* Secondary Overlapping Image (Back-left) */}
+              <div className="absolute left-6 top-6 w-48 h-48 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-lg border-4 border-white z-10 -rotate-3 transition-transform hover:rotate-0 duration-500">
+                <Image
+                  src="/branding/img3.jpeg"
+                  alt="Nissi Corporate heavy equipment"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Main Primary Image (Front-right) */}
+              <div className="absolute right-6 bottom-6 w-52 h-52 sm:w-56 sm:h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-[#1a35cc] z-20 rotate-3 transition-transform hover:rotate-0 duration-500">
+                <Image
+                  src="/branding/img2.jpeg"
+                  alt="Nissi Corporate Building"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f2e]/40 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3">
+                  <div className="text-white font-black text-xs leading-tight">Nissi Corporate</div>
+                  <div className="text-blue-200 text-[9px]">Infra Tech Private Limited</div>
+                </div>
+              </div>
+              
+              {/* Floating Trust Badge */}
+              <div className="absolute left-4 bottom-4 bg-white border border-blue-100 rounded-xl px-3 py-2 shadow-lg z-30 flex items-center gap-2 animate-bounce">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping" />
+                <div className="text-[9px] font-bold text-[#0a0f2e]">100% Quality Assurance</div>
               </div>
             </div>
 
@@ -135,7 +157,7 @@ export default function About() {
         </div>
 
         {/* Vision / Mission / Values */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 reveal-up">
           {pillars.map(({ icon: Icon, title, desc, color }) => (
             <div key={title} className="service-card rounded-2xl p-8 bg-white text-center group">
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform shadow-lg`}>
@@ -151,7 +173,7 @@ export default function About() {
         <div className="mt-20 border-t border-slate-100 pt-16">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: MD message */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 reveal-left">
               <span className="text-[#1a35cc] font-semibold text-xs tracking-widest uppercase mb-3 block">Leadership Message</span>
               <h3 className="text-3xl font-black text-[#0a0f2e] mb-6 leading-tight">From the Managing Director&apos;s Desk</h3>
               <div className="relative border-l-4 border-[#1a35cc] pl-6 mb-6">
@@ -172,7 +194,7 @@ export default function About() {
             </div>
 
             {/* Right Column: MD Photos & Board */}
-            <div className="lg:col-span-5 space-y-6">
+            <div className="lg:col-span-5 space-y-6 reveal-right">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Photo 1: Headshot */}
                 <div className="relative h-60 sm:h-64 rounded-2xl overflow-hidden shadow-md border border-slate-100">
@@ -209,8 +231,8 @@ export default function About() {
                 <div className="space-y-3">
                   {[
                     { name: "Ganga Chalam Geddam", role: "Founder & Managing Director" },
-                    { name: "Geddam Sharon Mary", role: "Managing Director" },
-                    { name: "Geddam Nissi Olive", role: "Director" },
+                    { name: "Geddam Sharon ", role: "Managing Director" },
+                    { name: "Geddam Nissi", role: "Director" },
                   ].map((director) => (
                     <div key={director.name} className="flex justify-between items-center border-b border-white/10 pb-2.5 last:border-0 last:pb-0">
                       <div className="font-semibold text-sm">{director.name}</div>

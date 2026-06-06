@@ -52,7 +52,7 @@ export default function Hero() {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-white leading-[1.1] mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-black text-white leading-[1.1] mb-6 animate-mask-reveal">
                 Building{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-400">
                   Infrastructure.
@@ -107,7 +107,7 @@ export default function Hero() {
                 { value: "100%", label: "On-Time Delivery", sub: "Disciplined execution", img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=70" },
                 { value: "2", label: "Major Clients", sub: "Jio & Tata Tele", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=70" },
               ].map((stat) => (
-                <div key={stat.label} className="stats-card rounded-2xl overflow-hidden card-hover group cursor-default">
+                <div key={stat.label} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden card-hover group cursor-default">
                   <div className="relative h-32 overflow-hidden">
                     <Image
                       src={stat.img}
@@ -115,14 +115,14 @@ export default function Hero() {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-[#0a0f2e]/50" />
+                    <div className="absolute inset-0 bg-[#0a0f2e]/60" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-3xl font-black text-white">{stat.value}</span>
                     </div>
                   </div>
-                  <div className="p-3">
-                    <div className="text-blue-300 font-bold text-xs">{stat.label}</div>
-                    <div className="text-slate-400 text-xs">{stat.sub}</div>
+                  <div className="p-4 bg-slate-950/80 border-t border-white/5">
+                    <div className="text-white font-extrabold text-xs mb-0.5">{stat.label}</div>
+                    <div className="text-slate-300 text-xs">{stat.sub}</div>
                   </div>
                 </div>
               ))}

@@ -20,11 +20,11 @@ export default function Contact() {
   return (
     <section id="contact" className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#1a35cc] font-semibold text-sm tracking-widest uppercase">Get In Touch</span>
-          <h2 className="text-4xl md:text-5xl font-black text-[#0a0f2e] mt-2 mb-4">Contact Us</h2>
-          <div className="section-divider mx-auto mb-6" />
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-16 reveal-up">
+          <span className="text-[#1a35cc] font-semibold text-sm tracking-widest uppercase text-reveal-up">Get In Touch</span>
+          <h2 className="text-4xl md:text-5xl font-black text-[#0a0f2e] mt-2 mb-4 text-mask-reveal delay-100">Contact Us</h2>
+          <div className="section-divider mx-auto mb-6 text-reveal-up delay-200" />
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto text-reveal-up delay-300">
             Ready to start your infrastructure project? Connect with us today and let&apos;s build something great together.
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function Contact() {
           {/* Info panel */}
           <div className="lg:col-span-2 space-y-6">
             {/* Image with logo overlay */}
-            <div className="relative h-52 rounded-2xl overflow-hidden">
+            <div className="relative h-52 rounded-2xl overflow-hidden reveal-left">
               <Image
                 src="/branding/img2.jpeg"
                 alt="Nissi office building"
@@ -46,7 +46,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#0a0f2e] to-[#122080] rounded-2xl p-7 text-white">
+            <div className="bg-gradient-to-br from-[#0a0f2e] to-[#122080] rounded-2xl p-7 text-white reveal-left delay-100">
               <h3 className="text-lg font-black mb-5">Let&apos;s Connect</h3>
               <div className="space-y-5">
                 {[
@@ -70,16 +70,16 @@ export default function Contact() {
                   <div>
                     <div className="text-blue-300 text-xs mb-0.5 uppercase tracking-wider">Address</div>
                     <p className="text-white font-semibold text-sm leading-relaxed">
-                      1-148 Devarapalli, Kovvuru Road,<br />
-                      Gowripatnam, West Godavari,<br />
-                      Andhra Pradesh — 534313
+                       1-148 Devarapalli, Kovvuru Road,<br />
+                       Gowripatnam, West Godavari,<br />
+                       Andhra Pradesh — 534313
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white border border-blue-100 rounded-2xl p-6">
+            <div className="bg-white border border-blue-100 rounded-2xl p-6 reveal-left delay-200">
               <h4 className="font-black text-[#0a0f2e] mb-4">Quick Response Guaranteed</h4>
               <ul className="space-y-3 text-sm text-slate-600">
                 {["Free site consultation", "Detailed project quote within 24–48 hours", "Experienced team assigned immediately", "Serving AP and surrounding states"].map((item) => (
@@ -93,7 +93,7 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-3 bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-gray-100">
+          <div className="lg:col-span-3 bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-gray-100 reveal-right delay-100">
             {submitted ? (
               <div className="flex flex-col items-center justify-center h-full text-center py-16">
                 <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-5">

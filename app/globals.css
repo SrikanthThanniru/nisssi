@@ -215,3 +215,85 @@ body {
   background: #1a35cc;
   border-radius: 3px;
 }
+
+/* Scroll Reveal Entrance Animations */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Page Load Text Mask-Reveal Animation */
+@keyframes maskReveal {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transform: translateY(35px);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateY(0);
+  }
+}
+
+.animate-mask-reveal {
+  animation: maskReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scroll-Triggered Text Animations */
+.text-mask-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transform: translateY(30px);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path, transform;
+  display: block;
+}
+
+.text-reveal-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  display: block;
+}
+
+/* Scroll Trigger Activations */
+.revealed .text-mask-reveal,
+.revealed.text-mask-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform: translateY(0);
+}
+
+.revealed .text-reveal-up,
+.revealed.text-reveal-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Transition Delays */
+.delay-100 { transition-delay: 100ms !important; }
+.delay-200 { transition-delay: 200ms !important; }
+.delay-300 { transition-delay: 300ms !important; }
+.delay-400 { transition-delay: 400ms !important; }
+.delay-500 { transition-delay: 500ms !important; }

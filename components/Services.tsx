@@ -68,18 +68,21 @@ export default function Services() {
   return (
     <section id="services" className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[#1a35cc] font-semibold text-sm tracking-widest uppercase">What We Offer</span>
-          <h2 className="text-4xl md:text-5xl font-black text-[#0a0f2e] mt-2 mb-4">Our Products &amp; Services</h2>
-          <div className="section-divider mx-auto mb-6" />
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+        <div className="text-center mb-16 reveal-up">
+          <span className="text-[#1a35cc] font-semibold text-sm tracking-widest uppercase text-reveal-up">What We Offer</span>
+          <h2 className="text-4xl md:text-5xl font-black text-[#0a0f2e] mt-2 mb-4 text-mask-reveal delay-100">Our Products &amp; Services</h2>
+          <div className="section-divider mx-auto mb-6 text-reveal-up delay-200" />
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto text-reveal-up delay-300">
             Comprehensive infrastructure solutions — from site survey to commissioning and long-term maintenance, all under one roof.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-          {services.map(({ icon: Icon, title, color, img, items }) => (
-            <div key={title} className="service-card bg-white rounded-2xl overflow-hidden group">
+          {services.map(({ icon: Icon, title, color, img, items }, idx) => (
+            <div 
+              key={title} 
+              className={`service-card bg-white rounded-2xl overflow-hidden group reveal-up delay-${(idx % 3 + 1) * 100}`}
+            >
               {/* Image top */}
               <div className="relative h-44 overflow-hidden">
                 <Image
@@ -109,7 +112,7 @@ export default function Services() {
           ))}
 
           {/* CTA card */}
-          <div className="bg-gradient-to-br from-[#0a0f2e] to-[#1a35cc] rounded-2xl p-7 flex flex-col justify-between text-white">
+          <div className="bg-gradient-to-br from-[#0a0f2e] to-[#1a35cc] rounded-2xl p-7 flex flex-col justify-between text-white reveal-up delay-300">
             <div>
               <div className="text-blue-300 font-bold text-xs tracking-widest uppercase mb-3">Need a Custom Solution?</div>
               <h3 className="text-2xl font-black mb-4 leading-tight">Let&apos;s Discuss Your Project</h3>

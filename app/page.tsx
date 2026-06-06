@@ -1,3 +1,5 @@
+"use client";
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -11,6 +13,50 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.05,
+      rootMargin: "0px 0px -40px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+        }
+      });
+    }, observerOptions);
+
+    const observeAll = () => {
+      const elements = document.querySelectorAll(
+        ".reveal-left, .reveal-right, .reveal-up, .text-mask-reveal, .text-reveal-up"
+      );
+      elements.forEach((el) => {
+        if (!el.classList.contains("revealed")) {
+          observer.observe(el);
+        }
+      });
+    };
+
+    // Initial observation
+    observeAll();
+
+    // Set up MutationObserver to auto-detect and observe newly added DOM nodes (like when filters change)
+    const mutationObserver = new MutationObserver(() => {
+      observeAll();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, []);
+
   return (
     <main className="overflow-x-hidden w-full relative">
       <Navbar />
