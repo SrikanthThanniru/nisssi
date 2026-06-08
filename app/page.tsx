@@ -58,7 +58,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="overflow-x-hidden w-full relative">
+    <main className="w-full relative">
       <Navbar />
       <Hero />
       <About />

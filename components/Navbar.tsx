@@ -28,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <>
+    <header className="sticky top-0 z-50 w-full">
       {/* Top bar */}
       <div className="bg-[#1a35cc] text-white text-sm py-2 px-4 hidden md:flex justify-between items-center gap-4 flex-wrap overflow-hidden">
         <span className="opacity-90 text-xs truncate max-w-full sm:max-w-none">
@@ -46,9 +46,9 @@ export default function Navbar() {
       </div>
 
       {/* Main nav */}
-      <nav className={`sticky top-0 z-50 transition-all duration-300 ${
+      <nav className={`transition-all duration-300 ${
         scrolled
-          ? "bg-white/96 backdrop-blur-md shadow-lg border-b border-blue-100"
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-blue-100"
           : "bg-white shadow-sm"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,6 +125,6 @@ export default function Navbar() {
           </div>
         )}
       </nav>
-    </>
+    </header>
   );
 }
